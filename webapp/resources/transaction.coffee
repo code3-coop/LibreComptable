@@ -1,12 +1,17 @@
+transactions = [{numero:"12345", type:"Nouveau Patron", montant:"250.00"}
+  ,{numero:"123", type:"Renouvellement", montant:"250000.00"}
+  ,{numero:"9999", type:"Renouvellement", montant:"30000.00"}]
+
 exports.index = (req, res) ->
   switch req.format
-    when 'json' then res.send ['transaction1', 'transaction2', 'transaction3']
+    when 'json' then res.send transactions
     else
       res.contentType 'txt'
-      res.send "transaction1,transaction2,transaction3"
+      res.send transactions
 
 exports.show = (req,res) ->
-  res.send "Showing transaction"
+  console.log "params:"+req
+  res.send transactions[req.params.transaction]
 
 exports.edit = (req,res) ->
   res.send "Editing transaction"
