@@ -10,7 +10,6 @@ exports.index = (req, res) ->
       res.send transactions
 
 exports.show = (req,res) ->
-  console.log "params:"+req
   res.send transactions[req.params.transaction]
 
 exports.edit = (req,res) ->
