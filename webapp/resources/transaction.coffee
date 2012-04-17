@@ -1,19 +1,11 @@
-transactions = [{numero:"12345", type:"Nouveau Patron", montant:"250.00"}
-  ,{numero:"123", type:"Renouvellement", montant:"250000.00"}
-  ,{numero:"9999", type:"Renouvellement", montant:"30000.00"}]
-
 exports.index = (req, res) ->
-  switch req.format
-    when 'json' then res.send transactions
-    else
-      res.contentType 'txt'
-      res.send transactions
+  res.send "not implemented"
 
 exports.show = (req,res) ->
-  res.send transactions[req.params.transaction]
+  res.send "not implemented"
 
 exports.edit = (req,res) ->
-  res.send "Editing transaction"
+  res.send "not implemented"
 
 exports.destroy = (req,res) ->
-  res.send "Destroying transaction"
+  res.send "not implemented"

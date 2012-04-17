@@ -3,6 +3,7 @@
  * Module dependencies.
  */
 
+require('coffee-script');
 var express = require('express')
   , routes = require('./routes');
 require('express-resource');
@@ -35,7 +36,9 @@ app.get('/', routes.index);
 
 // Resources
 var transactions = app.resource('transactions', require('./resources/transaction'));
-
+var compte = require('./resources/compte');
+var comptes = app.resource('comptes', compte);
+comptes.map('get', 'solde', compte.solde)
 
 app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
