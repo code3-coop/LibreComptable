@@ -20,7 +20,7 @@ exports.solde = (req,res) ->
     tags = req.query.tags.split ","
     for tag in tags
       tagsQuery += " AND '#{tag}' = ANY (tags)" 
-
+#TODO ne pas ouvlier de filtrer sur les dates effectives!
   query = """
     SELECT sum (
       CASE WHEN type='debit' THEN -montant
